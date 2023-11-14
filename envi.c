@@ -50,14 +50,13 @@ int envi(data_of_program *data)
 }
 
 /**
- * built_set_env - ..
+ * built_set_env - . . .
  * @data: struct for data
  * Return: zero if sucess, or other number if its declared in the arguments
  */
 
 int built_set_env(data_of_program *data)
 {
-	/* validate args */
 	if (data->tokens[1] == NULL || data->tokens[2] == NULL)
 		return (0);
 	if (data->tokens[3] != NULL)
@@ -73,14 +72,13 @@ int built_set_env(data_of_program *data)
 }
 
 /**
- * built_unset_env - ..
+ * built_unset_env - . . .
  * @data: struct for data'
- * Return: ..
+ * Return: . . .
  */
 
 int built_unset_env(data_of_program *data)
 {
-	/* validate args */
 	if (data->tokens[1] == NULL)
 		return (0);
 	if (data->tokens[2] != NULL)
