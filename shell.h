@@ -14,5 +14,8 @@
 #include <fcntl.h> /* for open files*/
 
 char *_strtok(char *line, char *delim);
+int envi(data_of_program *data);
+int envi(data_of_program *data);
+int built_unset_env(data_of_program *data);
 
 #endif
