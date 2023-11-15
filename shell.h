@@ -99,7 +99,7 @@ typedef struct passInformation
 	list_t *alias;
 	int envChanged;
 	int status;
-	char **cmdBuffer; /* pointer to cmd ; chain buffer, for memory mangement */
+	char **cmdBuffer; /* pointer to cmd ; chain buffer, for memory management */
 	int cmdBufferType; /* CMD_type ||, &&, ; */
 	int readFD;
 	int historyCounter;
@@ -196,7 +196,7 @@ int _atoi(char *);
 
 
 /* more_functions2.c */
-int _erratoi(char *);
+int _strtoi(char *);
 void print_error(info_t *, char *);
 int print_d(int, int);
 char *convert_number(long int, int, int);
@@ -205,15 +205,19 @@ void remove_comments(char *);
 
 
 /* builtin_emulators.c */
-int _myexit(info_t *);
-int _mycd(info_t *);
-int _myhelp(info_t *);
+int _shellExit(info_t *);
+int _shellCD(info_t *);
+int _myHelp(info_t *);
 
 
 
 /* builtin_emulators2.c */
-int _myhistory(info_t *);
-int _myalias(info_t *);
+int _myHistory(info_t *);
+int unsetAlias(info_t *, char *);
+int setAlias(info_t *, char *);
+int printAlias(list_t *);
+int _myAlias(info_t *);
+
 
 
 
