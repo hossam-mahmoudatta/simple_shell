@@ -58,4 +58,4 @@ hsh main.c shell.c test_ls_2
 $
 ```
 ## Authors
-Houssam Mahmoud & Rania Triek
+Hossam Mahmoud & Rania Triek
