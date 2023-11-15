@@ -1,5 +1,4 @@
 #include "shell.h"
-#include <stdio.h>
 
 /**
  * envi - the environment where the shell runs
