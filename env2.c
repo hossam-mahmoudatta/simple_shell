@@ -78,18 +78,18 @@ int _setenv(info_t *info, char *variable, char *value)
 	node = info->env;
 	while (node)
 	{
-		string = starts_with(node->str, variable);
+		string = starts_with(node->string, variable);
 		if (string && *string == '=')
 		{
-			free(node->str);
-			node->str = buf;
-			info->env_changed = 1;
+			free(node->string);
+			node->string = buffer;
+			info->envChanged = 1;
 			return (0);
 		}
 		node = node->next;
 	}
-	add_node_end(&(info->env), buf, 0);
-	free(buf);
-	info->env_changed = 1;
+	add_node_end(&(info->env), buffer, 0);
+	free(buffer);
+	info->envChanged = 1;
 	return (0);
 }
