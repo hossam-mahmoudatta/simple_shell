@@ -133,8 +133,8 @@ char *findPath(info_t *, char *, char *);
 
 
 
-/* loophsh.c */
-int loophsh(char **);
+/* loop_Hash.c */
+int loopHash(char **);
 
 
 
