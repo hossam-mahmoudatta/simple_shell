@@ -1,11 +1,11 @@
 #include "shell.h"
 /**
- * _strtok - separates strings with delimiters
- * @line: pointer to array we receive in getline.
- * @del: characters we mark off string in parts.
+ * strtok_s - separates strings with delimiters
+ * @line: pointer to array we receive in getline
+ * @del: characters we mark off string in parts
  * Return: A pointer to the created token
 */
-char *_strtok(char *line, char *del)
+char *strtok_s(char *line, char *del)
 {
 	int i;
 	static char *str;
