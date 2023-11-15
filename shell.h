@@ -220,7 +220,6 @@ int _myAlias(info_t *);
 
 
 
-
 /* getline.c module */
 ssize_t get_input(info_t *);
 int _getline(info_t *, char **, size_t *);
@@ -232,6 +231,15 @@ void sigintHandler(int);
 void clear_info(info_t *);
 void set_info(info_t *, char **);
 void free_info(info_t *, int);
+
+
+
+/* chain.c */
+int isChain(info_t *, char *, size_t *);
+void checkChain(info_t *, char *, size_t *, size_t, size_t);
+int replaceAlias(info_t *);
+int replaceVars(info_t *);
+int replaceString(char **, char *);
 
 
 
@@ -278,21 +286,15 @@ ssize_t get_node_index(list_t *, list_t *);
 
 
 
-/* chain.c */
-int is_chain(info_t *, char *, size_t *);
-void check_chain(info_t *, char *, size_t *, size_t, size_t);
-int replace_alias(info_t *);
-int replace_vars(info_t *);
-int replace_string(char **, char *);
 
 
 
 
 
-char *strtok_s(char *line, char *delim);
-int envi(data_of_program *data);
-int envi(data_of_program *data);
-int built_unset_env(data_of_program *data);
+// char *strtok_s(char *line, char *delim);
+// int envi(data_of_program *data);
+// int envi(data_of_program *data);
+// int built_unset_env(data_of_program *data);
 
 
 
