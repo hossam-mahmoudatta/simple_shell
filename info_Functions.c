@@ -47,11 +47,11 @@ void set_voidInfo(info_t *info, char **argVector)
 }
 
 /**
- * free_info - frees info_t struct fields
+ * free_voidInfo - frees info_t struct fields
  * @info: struct address
  * @all: true if freeing all fields
  */
-void free_info(info_t *info, int all)
+void free_voidInfo(info_t *info, int all)
 {
 	ffree(info->argv);
 	info->argv = NULL;
