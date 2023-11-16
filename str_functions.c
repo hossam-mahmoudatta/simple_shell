@@ -111,8 +111,8 @@ int _strncmp(const char *s1, const char *s2, size_t n)
 
 	for (counter = 0; counter < n; counter++)
 	{
-		ptr1 = (unsigned char)s1[i];
-		ptr2 = (unsigned char)s2[i];
+		ptr1 = (unsigned char)s1[counter];
+		ptr2 = (unsigned char)s2[counter];
 
 		if (ptr1 != ptr2)
 			return (ptr1 - ptr2);
