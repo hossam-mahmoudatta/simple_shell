@@ -10,9 +10,9 @@
  *
  * Return: bytes read
  */
-size_t input_Buffer(info_t *info, char **buffer, size_t *length)
+ssize_t input_Buffer(info_t *info, char **buffer, size_t *length)
 {
-	size_t r = 0;
+	ssize_t r = 0;
 	size_t length_P = 0;
 
 	if (!*length) /* if nothing left in the buffer, fill it */
@@ -34,8 +34,8 @@ size_t input_Buffer(info_t *info, char **buffer, size_t *length)
 				r--;
 			}
 			info->lineCount_Flag = 1;
-			remove_comments(*buffer);
-			build_history_list(info, *buffer, info->historyCounter++);
+			remove_voidComments(*buffer);
+			build_intHistoryList(info, *buffer, info->historyCounter++);
 			/* if (_strchr(*buf, ';')) is this a command chain? */
 			{
 				*length = r;
@@ -54,11 +54,11 @@ size_t input_Buffer(info_t *info, char **buffer, size_t *length)
  *
  * Return: bytes read
  */
-size_t get_Input(info_t *info)
+ssize_t get_Input(info_t *info)
 {
 	static char *buffer; /* the ';' command chain buffer */
 	static size_t i, j, length;
-	size_t r = 0;
+	ssize_t r = 0;
 	char **buffer_PTR = &(info->argument), *p;
 
 	_putchar(BUFFER_FLUSH);
@@ -103,9 +103,9 @@ size_t get_Input(info_t *info)
  *
  * Return: r
  */
-size_t read_Buffer(info_t *info, char *buffer, size_t *counter)
+ssize_t read_Buffer(info_t *info, char *buffer, size_t *counter)
 {
-	size_t reader = 0;
+	ssize_t reader = 0;
 
 	if (*counter)
 		return (0);
@@ -129,8 +129,8 @@ int _getline(info_t *info, char **pointer, size_t *size_Length)
 {
 	static char buffer[READ_BUFFER_SIZE];
 	static size_t i, length;
-	size_t k;
-	size_t r = 0, s = 0;
+	ssize_t k;
+	ssize_t r = 0, s = 0;
 	char *ptr = NULL, *new_ptr = NULL, *c;
 
 	ptr = *pointer;
@@ -144,7 +144,7 @@ int _getline(info_t *info, char **pointer, size_t *size_Length)
 		return (-1);
 
 	c = _strchr(buffer + i, '\n');
-	k = c ? 1 + (unsigned int)(c - buffer) : len;
+	k = c ? 1 + (unsigned int)(c - buffer) : length;
 	new_ptr = _realloc(ptr, s, s ? s + k : k + 1);
 	if (!new_ptr) /* MALLOC FAILURE! */
 		return (ptr ? free(ptr), -1 : -1);
