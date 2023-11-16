@@ -72,7 +72,7 @@ char *findPath(info_t *info, char *pathString, char *CMD)
 	{
 		if (!pathString[i] || pathString[i] == ':')
 		{
-			path = dup_chars(pathString, currentPosition, i);
+			path = duplicateCharacters(pathString, currentPosition, i);
 			if (!*path)
 				_strcat(path, CMD);
 			else
