@@ -7,14 +7,14 @@
 int execute_with_path(char **args)
 {
 	linked_path *temp = link_path();
-	char fullpath[1024];
+	char full_Path[1024];
 
 	while (temp != NULL)
 	{
-		sprintf(fullpath, "%s/%s", temp->dir, args[0]);
-		if (access(fullpath, F_OK) == 0)
+		sprintf(full_Path, "%s/%s", temp->dir, args[0]);
+		if (access(full_Path, F_OK) == 0)
 		{
-			execve(fullpath, args, NULL);
+			execve(full_Path, args, NULL);
 		}
 		temp = temp->next;
 	}
@@ -30,12 +30,12 @@ int execute_with_path(char **args)
 int check_path(char **args)
 {
 	linked_path *temp = link_path();
-	char fullpath[1024];
+	char full_Path[1024];
 
 	while (temp != NULL)
 	{
-		sprintf(fullpath, "%s/%s", temp->dir, args[0]);
-		if (access(fullpath, F_OK) == 0)
+		sprintf(full_Path, "%s/%s", temp->dir, args[0]);
+		if (access(full_Path, F_OK) == 0)
 		{
 			return (1);
 		}
@@ -50,7 +50,7 @@ int check_path(char **args)
  */
 linked_path *link_path(void)
 {
-	char *dir;
+	char *direction;
 	char *Path;
 	char *Path_dup;
 	linked_path *head;
@@ -61,17 +61,17 @@ linked_path *link_path(void)
 
 	Path = _getenv("PATH");
 	Path_dup = _strdup(Path);
-	dir = str_tok(Path_dup, ":");
-	current_node->dir = _strdup(dir);
+	direction = str_tok(Path_dup, ":");
+	current_node->dir = _strdup(direction);
 
-	while (dir != NULL)
+	while (direction != NULL)
 	{
-		dir = str_tok(NULL, ":");
-		if (dir != NULL)
+		direction = str_tok(NULL, ":");
+		if (direction != NULL)
 		{
 			current_node->next = (linked_path *)malloc(sizeof(linked_path));
 			current_node = current_node->next;
-			current_node->dir = _strdup(dir);
+			current_node->dir = _strdup(direction);
 		}
 	}
 	current_node->next = NULL;
