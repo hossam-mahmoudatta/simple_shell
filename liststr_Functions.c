@@ -89,7 +89,7 @@ size_t print_list_string(const list_t *HeadPTR)
 {
 	size_t i = 0;
 
-	while (h)
+	while (HeadPTR)
 	{
 		_puts(HeadPTR->string ? HeadPTR->string : "(nil)");
 		_puts("\n");
