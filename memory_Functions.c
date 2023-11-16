@@ -18,7 +18,7 @@ char *_memset(char *s, char b, unsigned int n)
 
 
 /**
- * free_Strings - frees a string of strings
+ * ffree - frees a string of strings
  * @ptrtoptr: string of strings
  */
 void ffree(char **ptrtoptr)
@@ -48,7 +48,7 @@ void *_realloc(void *pointer, unsigned int old_size, unsigned int new_size)
 	if (!pointer)
 		return (malloc(new_size));
 	if (!new_size)
-		return (free(ptr), NULL);
+		return (free(pointer), NULL);
 	if (new_size == old_size)
 		return (pointer);
 
@@ -58,7 +58,7 @@ void *_realloc(void *pointer, unsigned int old_size, unsigned int new_size)
 
 	old_size = old_size < new_size ? old_size : new_size;
 	while (old_size--)
-		p[old_size] = ((char *)ptr)[old_size];
+		p[old_size] = ((char *)pointer)[old_size];
 	free(pointer);
 	return (p);
 }
