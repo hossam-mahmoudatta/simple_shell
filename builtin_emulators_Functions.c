@@ -13,7 +13,7 @@ int _shellExit(info_t *info)
 {
 	int exitCheck;
 
-	if (info->argv[1])  /* If there is an exit arguement */
+	if (info->argv[1])  /* If there is an exit argument */
 	{
 		exitCheck = _strtoi(info->argv[1]);
 		if (exitCheck == -1)
