@@ -8,7 +8,7 @@
  */
 int _myenv(info_t *info)
 {
-	print_list_str(info->env);
+	print_list_string(info->env);
 	return (0);
 }
 
@@ -45,7 +45,7 @@ int _mysetenv(info_t *info)
 {
 	if (info->argc != 3)
 	{
-		_inputPuts("Incorrect number of arguements\n");
+		_inputPuts("Incorrect number of arguments\n");
 		return (1);
 	}
 	if (_setenv(info, info->argv[1], info->argv[2]))
@@ -65,7 +65,7 @@ int _myunsetenv(info_t *info)
 
 	if (info->argc == 1)
 	{
-		_inputPuts("Too few arguements.\n");
+		_inputPuts("Too few arguments.\n");
 		return (1);
 	}
 	for (i = 1; i <= info->argc; i++)
