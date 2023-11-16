@@ -11,7 +11,7 @@
  */
 int mainShell(info_t *info, char **argVector)
 {
-	size_t variable1 = 0;
+	ssize_t variable1 = 0;
 	int builtin_ret = 0;
 
 	while (variable1 != -1 && builtin_ret != -2)
@@ -20,10 +20,10 @@ int mainShell(info_t *info, char **argVector)
 		if (interactive(info))
 			_puts("$ ");
 		_inputPutChar(BUFFER_FLUSH);
-		variable1 = get_input(info);
+		variable1 = get_Input(info);
 		if (variable1 != -1)
 		{
-			set_info(info, argVector);
+			set_voidInfo(info, argVector);
 			builtin_ret = findBuiltIn(info);
 			if (builtin_ret == -1)
 				findCMD(info);
@@ -88,7 +88,7 @@ int findBuiltIn(info_t *info)
  *
  * Return: void
  */
-void findCMD(info_t *info)
+void  findCMD(info_t *info)
 {
 	char *path = NULL;
 	int i, k;
