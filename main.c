@@ -1,73 +1,48 @@
 #include "main.h"
 
 /**
- * free_data - frees data structure
- *
- * @datash: data structure
- * Return: no return
- */
-void free_data(data_shell *datash)
-{
-	unsigned int i;
-
-	for (i = 0; datash->_environ[i]; i++)
-	{
-		free(datash->_environ[i]);
-	}
-
-	free(datash->_environ);
-	free(datash->pid);
-}
-
-/**
- * set_data - Initialize data structure
- *
- * @datash: data structure
- * @av: argument vector
- * Return: no return
- */
-void set_data(data_shell *datash, char **av)
-{
-	unsigned int i;
-
-	datash->av = av;
-	datash->input = NULL;
-	datash->args = NULL;
-	datash->status = 0;
-	datash->counter = 1;
-
-	for (i = 0; environ[i]; i++)
-		;
-
-	datash->_environ = malloc(sizeof(char *) * (i + 1));
-
-	for (i = 0; environ[i]; i++)
-	{
-		datash->_environ[i] = _strdup(environ[i]);
-	}
-
-	datash->_environ[i] = NULL;
-	datash->pid = aux_itoa(getpid());
-}
-
-/**
  * main - Entry point
- *
- * @ac: argument count
- * @av: argument vector
- *
- * Return: 0 on success.
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: Always 0 (Success)
  */
-int main(int ac, char **av)
+int main(int argc __attribute__((unused)), char **argv)
 {
-	data_shell datash;
-	(void) ac;
+	bool interactive = isatty(STDIN_FILENO);
+	char *shellPrompt = interactive ? "$ " : "";
+	size_t n = 0;
+	ssize_t line;
+	int line_num = 1;
+	char **cmd;
 
-	signal(SIGINT, get_sigint);
-	set_data(&datash, av);
-	shell_loop(&datash);
-	free_data(&datash);
-	if (datash.status < 0)
-		return (255);
-	return (datash.status);
+	signal(SIGINT, SIG_IGN);
+
+	for (;;)
+	{
+		if (interactive)
+		{
+			write(STDOUT_FILENO, shellPrompt, 3);
+			fflush(stdout);
+		}
+		line = get_line(argv, &n, STDIN_FILENO);
+		if (line == -1)
+		{
+			if (feof(stdin))
+			{
+				exit(EXIT_SUCCESS);
+			}
+			break;
+		}
+		if (line == 0 || *argv[0] == '\n')
+			continue;
+		cmd = argv;
+		while (*cmd != NULL)
+		{
+			execute(*cmd, line_num);
+			cmd++;
+		}
+		_freeargs(argv);
+		line_num++;
+	}
+	return (0);
 }
