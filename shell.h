@@ -3,17 +3,15 @@
 
 
 #include <stdio.h>
-#include <unistd.h>
-#include <windows.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <string.h>
-#include <stddef.h>
-#include <errno.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
-#include <signal.h>
+#include <limits.h>
 #include <fcntl.h>
+#include <errno.h>
 
 
 /* for read/write buffers */
@@ -38,7 +36,7 @@
 #define HISTORY_FILE	".simple_shell_history"
 #define HISTORY_MAX		4096
 
-extern char **Environment;
+extern char **environ;
 
 
 /**
@@ -67,7 +65,7 @@ typedef struct listString
  *@lineCount_Flag: if on count this line of input
  *@fileName: the program filename
  *@env: linked list local copy of environ
- *@Environment: custom modified copy of environ from LL env
+ *@environ: custom modified copy of environ from LL env
  *@history: the history node
  *@alias: the alias node
  *@envChanged: on if environ was changed
@@ -88,7 +86,7 @@ typedef struct passInformation
 	int lineCount_Flag;
 	char *fileName;
 	list_t *env;
-	char **Environment;
+	char **environ;
 	list_t *history;
 	list_t *alias;
 	int envChanged;
@@ -98,6 +96,12 @@ typedef struct passInformation
 	int readFD;
 	int historyCounter;
 } info_t;
+
+
+#define INFO_INIT \
+{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+	0, 0, 0}
+
 
 /**
  *struct builtIn - contains a builtin string and related function

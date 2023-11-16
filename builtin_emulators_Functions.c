@@ -42,6 +42,7 @@ int _shellCD(info_t *info)
 	int chdir_ret;
 
 	s = getcwd(buffer, 1024);
+
 	if (!s)
 		_puts("TODO: >>getcwd failure emsg here<<\n");
 	if (!info->argv[1])
@@ -69,7 +70,7 @@ int _shellCD(info_t *info)
 		chdir_ret = chdir(info->argv[1]);
 	if (chdir_ret == -1)
 	{
-		print_error(info, "can't cd to ");
+		print_voidError(info, "can't cd to ");
 		_inputPuts(info->argv[1]), _inputPutChar('\n');
 	}
 	else
