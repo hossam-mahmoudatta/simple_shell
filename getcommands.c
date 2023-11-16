@@ -24,27 +24,28 @@ char *get_dir()
 		return (NULL);
 	}
 }
+
+
+
 /**
  * _getenv - is a function that checks for
  * a variable in the environment
  * @name: is a a pointer to an array of characters
  * Return: a pointer if success or NULL if failed
  */
-
-
 char *_getenv(const char *name)
 {
 	int i = 0;
-	char *envi_ron;
+	char *envi_Variable;
 	char *equals;
 
 	while (environ[i] != NULL)
 	{
-		envi_ron = environ[i];
-		equals = _strchr(envi_ron, '=');
+		envi_Variable = environ[i];
+		equals = _strchr(envi_Variable, '=');
 
 		*equals = '\0';
-		if (_strcmp(envi_ron, name) == 0)
+		if (_strcmp(envi_Variable, name) == 0)
 		{
 			*equals = '=';
 			return (environ[i] + _strlen(name) + 1);
@@ -54,18 +55,23 @@ char *_getenv(const char *name)
 	}
 	return (NULL);
 }
+
+
+
 /**
  * get_line - Entry point
+ *
  * @buffer: to hold command and arguments
  * @bufsize: size of buffer
  * @fd: file descriptor of input stream
+ *
  * Return: string buffer
  */
 ssize_t get_line(char **buffer, size_t *bufsize, int fd)
 {
 	static size_t line_buffer_size = 1024;
 	ssize_t read_bytes;
-	size_t len = 0;
+	size_t length = 0;
 	*bufsize = line_buffer_size;
 	*buffer = malloc(*bufsize * sizeof(char));
 
@@ -74,16 +80,16 @@ ssize_t get_line(char **buffer, size_t *bufsize, int fd)
 		not_buff();
 	}
 
-	while ((read_bytes = read(fd, *buffer + len, 1)) > 0)
+	while ((read_bytes = read(fd, *buffer + length, 1)) > 0)
 	{
-		if ((*buffer)[len] == '\n')
+		if ((*buffer)[length] == '\n')
 		{
-			(*buffer)[len] = '\0';
-			return (len);
+			(*buffer)[length] = '\0';
+			return (length);
 		}
-		len++;
+		length++;
 
-		if (len >= *bufsize)
+		if (length >= *bufsize)
 		{
 			*bufsize *= 2;
 			*buffer = realloc(*buffer, *bufsize * sizeof(char));
