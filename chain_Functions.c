@@ -3,7 +3,7 @@
 /**
  * is_chain - test if current char in buffer is a chain delimeter
  * @info: the parameter struct
- * @buf: the char buffer
+ * @buffer: the char buffer
  * @p: address of current position in buf
  *
  * Return: 1 if chain delimeter, 0 otherwise
@@ -144,7 +144,7 @@ int replaceVars(info_t *info)
 }
 
 /**
- * replace_string - replaces string
+ * replaceString - replaces string
  * @old: address of old string
  * @new: new string
  *

@@ -81,7 +81,7 @@ list_t *add_node_end(list_t **head, const char *string, int number)
 
 /**
  * print_list_string - prints only the str element of a list_t linked list
- * @h: pointer to first node
+ * @HeadPTR: pointer to first node
  *
  * Return: size of list
  */

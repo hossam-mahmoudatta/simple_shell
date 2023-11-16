@@ -98,11 +98,11 @@ int print_intDecimal(int input, int fileDescripter)
  * convert_charNumber - converter function, a clone of itoa
  * @number: number
  * @base: base
- * @argFlags: argument flags
+ * @argFlag: argument flags
  *
  * Return: string
  */
-char *convert_charNumber(long int number, int base, int argFlags)
+char *convert_charNumber(long int number, int base, int argFlag)
 {
 	static char *array;
 	static char buffer[50];
@@ -110,13 +110,13 @@ char *convert_charNumber(long int number, int base, int argFlags)
 	char *ptr;
 	unsigned long n = number;
 
-	if (!(argFlags & CONVERT_UNSIGNED) && number < 0)
+	if (!(argFlag & CONVERT_UNSIGNED) && number < 0)
 	{
 		n = -number;
 		sign = '-';
 
 	}
-	array = argFlags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+	array = argFlag & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	ptr = &buffer[49];
 	*ptr = '\0';
 

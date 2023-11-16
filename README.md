@@ -36,7 +36,7 @@ The purpose of the simple shell project is to understand:
 ```c
 $ ./hsh
 ($) /bin/sh
-hsh main.c shell.c 
+hsh main.c shell.c
 ($)
 ($) exit
 $

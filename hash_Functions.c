@@ -58,16 +58,16 @@ int mainShell(info_t *info, char **argVector)
 int findBuiltIn(info_t *info)
 {
 	int counter, builtIn_Retention = -1;
-	
-    builtIn_Table builtIn_Table_Instance[] = {
-		{"exit", _myexit},
+
+	builtIn_Table builtIn_Table_Instance[] = {
+		{"exit", _shellExit},
 		{"env", _myenv},
-		{"help", _myhelp},
-		{"history", _myhistory},
+		{"help", _myHelp},
+		{"history", _myHistory},
 		{"setenv", _mysetenv},
 		{"unsetenv", _myunsetenv},
-		{"cd", _mycd},
-		{"alias", _myalias},
+		{"cd", _shellCD},
+		{"alias", _myAlias},
 		{NULL, NULL}
 	};
 

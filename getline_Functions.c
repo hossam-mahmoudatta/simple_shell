@@ -120,8 +120,8 @@ size_t read_Buffer(info_t *info, char *buffer, size_t *counter)
 /**
  * _getline - gets the next line of input from STDIN
  * @info: parameter struct
- * @ptr: address of pointer to buffer, preallocated or NULL
- * @length: size of preallocated ptr buffer if not NULL
+ * @pointer: address of pointer to buffer, preallocated or NULL
+ * @size_Length: size of preallocated ptr buffer if not NULL
  *
  * Return: s
  */

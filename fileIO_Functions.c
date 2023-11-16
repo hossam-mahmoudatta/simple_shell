@@ -11,16 +11,16 @@
 
 char *get_charHistoryFile(info_t *info)
 {
-	char *buffer, *directory;
+	char *buffer, *direc;
 
-	directory = _getenv(info, "HOME=");
-	if (!directory)
+	direc = _getenv(info, "HOME=");
+	if (!direc)
 		return (NULL);
-	buffer = malloc(sizeof(char) * (_strlen(directory) + _strlen(HISTORY_FILE) + 2));
+	buffer = malloc(sizeof(char) * (_strlen(direc) + _strlen(HISTORY_FILE) + 2));
 	if (!buffer)
 		return (NULL);
 	buffer[0] = 0;
-	_strcpy(buffer, directory);
+	_strcpy(buffer, direc);
 	_strcat(buffer, "/");
 	_strcat(buffer, HISTORY_FILE);
 	return (buffer);
@@ -110,8 +110,8 @@ int read_intHistory(info_t *info)
 /**
  * build_intHistoryList - adds entry to a history linked list
  * @info: Structure containing potential arguments. Used to maintain
- * @buf: buffer
- * @linecount: the history linecount, histcount
+ * @buffer: buffer
+ * @lineCount: the history linecount, histcount
  *
  * Return: Always 0
  */

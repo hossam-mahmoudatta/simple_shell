@@ -19,7 +19,7 @@ int _shellExit(info_t *info)
 		if (exitCheck == -1)
 		{
 			info->status = 2;
-			print_error(info, "Illegal number: ");
+			print_voidError(info, "Illegal number: ");
 			_inputPuts(info->argv[1]);
 			_inputPutChar('\n');
 			return (1);
@@ -32,7 +32,7 @@ int _shellExit(info_t *info)
 }
 
 /**
- * _mycd - changes the current directory of the process
+ * _shellCD - changes the current directory of the process
  * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  *  Return: Always 0
@@ -84,7 +84,7 @@ int _shellCD(info_t *info)
 
 
 /**
- * _myhelp - changes the current directory of the process
+ * _myHelp - changes the current directory of the process
  * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  *  Return: Always 0

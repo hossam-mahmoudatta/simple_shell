@@ -2,7 +2,7 @@
 
 /**
  *_inputPuts - prints an input string
- * @str: the string to be printed
+ * @string: the string to be printed
  *
  * Return: Nothing
  */
