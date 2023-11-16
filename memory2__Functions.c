@@ -8,7 +8,7 @@
  *
  * Return: 1 if freed, otherwise 0.
  */
-int bfree_Pointer(void **pointer)
+int bfree(void **pointer)
 {
 	if (pointer && *pointer)
 	{

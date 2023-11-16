@@ -21,7 +21,7 @@ char *_memset(char *s, char b, unsigned int n)
  * free_Strings - frees a string of strings
  * @ptrtoptr: string of strings
  */
-void free_Strings(char **ptrtoptr)
+void ffree(char **ptrtoptr)
 {
 	char **a = ptrtoptr;
 

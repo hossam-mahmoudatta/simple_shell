@@ -29,7 +29,6 @@ void set_voidInfo(info_t *info, char **argVector)
 		info->argv = strtow(info->argument, " \t");
 		if (!info->argv)
 		{
-
 			info->argv = malloc(sizeof(char *) * 2);
 			if (info->argv)
 			{

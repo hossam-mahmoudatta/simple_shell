@@ -215,13 +215,13 @@ size_t get_node_index(list_t *, list_t *);
 
 /* memory_functions */
 char *_memset(char *, char, unsigned int);
-void free_Strings(char **);
+void ffree(char **);
 void *_realloc(void *, unsigned int, unsigned int);
 
 
 
 /* memory_functions2.c */
-int bfree_Pointer(void **);
+int bfree(void **);
 
 
 
