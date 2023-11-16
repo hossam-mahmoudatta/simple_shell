@@ -191,9 +191,9 @@ int loopHash(char **);
 
 
 /* info.c module */
-void clear_info(info_t *);
-void set_info(info_t *, char **);
-void free_info(info_t *, int);
+void clear_voidInfo(info_t *);
+void set_voidInfo(info_t *, char **);
+void free_voidInfo(info_t *, int);
 
 
 

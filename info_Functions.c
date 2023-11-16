@@ -3,10 +3,10 @@
 
 
 /**
- * clear_info - initializes info_t struct
+ * clear_voidInfo - initializes info_t struct
  * @info: struct address
  */
-void clear_info(info_t *info)
+void clear_voidInfo(info_t *info)
 {
 	info->argument = NULL;
 	info->argv = NULL;
@@ -15,18 +15,18 @@ void clear_info(info_t *info)
 }
 
 /**
- * set_info - initializes info_t struct
+ * set_voidInfo - initializes info_t struct
  * @info: struct address
  * @argVector: argument vector
  */
-void set_info(info_t *info, char **argVector)
+void set_voidInfo(info_t *info, char **argVector)
 {
 	int i = 0;
 
 	info->fileName = argVector[0];
 	if (info->argument)
 	{
-		info->argv = strtow(info->arg, " \t");
+		info->argv = strtow(info->argument, " \t");
 		if (!info->argv)
 		{
 
