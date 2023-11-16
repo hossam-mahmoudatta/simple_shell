@@ -8,15 +8,15 @@
  */
 int _strlen(const char *s)
 {
-	int lent;
+	int str_Length;
 
 	if (s == NULL)
 		return (-1);
 
-	lent = 0;
-	while (s[lent] != '\0')
-		lent++;
-	return (lent);
+	str_Length = 0;
+	while (s[str_Length] != '\0')
+		str_Length++;
+	return (str_Length);
 }
 
 /**
@@ -27,22 +27,22 @@ int _strlen(const char *s)
  */
 int _strcmp(const char *s1, const char *s2)
 {
-	const char *p1 = s1;
-	const char *p2 = s2;
+	const char *ptr1 = s1;
+	const char *ptr2 = s2;
 	int i = 0;
 
-	if (p1 == NULL && p2 == NULL)
+	if (ptr1 == NULL && ptr2 == NULL)
 		return (0);
-	else if (p1 == NULL)
+	else if (ptr1 == NULL)
 		return (-1);
-	else if (p2 == NULL)
+	else if (ptr2 == NULL)
 		return (1);
 
-	while (*(p1 + i) != '\0' && *(p2 + i) != '\0' && p1[i] == p2[i])
+	while (*(ptr1 + i) != '\0' && *(ptr2 + i) != '\0' && ptr1[i] == ptr2[i])
 	{
 		i++;
 	}
-	return (p1[i] - p2[i]);
+	return (ptr1[i] - ptr2[i]);
 }
 
 /**
@@ -53,13 +53,13 @@ int _strcmp(const char *s1, const char *s2)
  */
 char *_strchr(const char *s, const char c)
 {
-	const char *p = s;
-	const char *pp = &c;
+	const char *ptr1 = s;
+	const char *ptr2 = &c;
 	int i;
 
-	for (i = 0; *(p + i) != '\0'; i++)
+	for (i = 0; *(ptr1 + i) != '\0'; i++)
 
-		if (*(p + i) == *pp)
+		if (*(ptr1 + i) == *ptr2)
 		{
 			return ((char *)(s + i));
 		}
@@ -74,20 +74,20 @@ char *_strchr(const char *s, const char c)
  */
 char *_strdup(const char *str)
 {
-	int i, len = 0;
+	int i, str_Length = 0;
 	char *r_value;
 
 	if (str == NULL)
 		return (NULL);
 
-	for (; str[len] != '\0'; len++)
+	for (; str[str_Length] != '\0'; str_Length++)
 		;
 
-	r_value = malloc(sizeof(char) * (len + 1));
+	r_value = malloc(sizeof(char) * (str_Length + 1));
 	if (r_value == NULL)
 		return (NULL);
 
-	for (i = 0; i <= len; i++)
+	for (i = 0; i <= str_Length; i++)
 		r_value[i] = str[i];
 
 	return (r_value);
@@ -103,20 +103,20 @@ char *_strdup(const char *str)
 
 int _strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned char p1, p2;
-	size_t i;
+	unsigned char ptr1, ptr2;
+	size_t counter;
 
 	if (s1 == NULL || s2 == NULL)
 		return (-1);
 
-	for (i = 0; i < n; i++)
+	for (counter = 0; counter < n; counter++)
 	{
-		p1 = (unsigned char)s1[i];
-		p2 = (unsigned char)s2[i];
+		ptr1 = (unsigned char)s1[i];
+		ptr2 = (unsigned char)s2[i];
 
-		if (p1 != p2)
-			return (p1 - p2);
-		if (p1 == '\0')
+		if (ptr1 != ptr2)
+			return (ptr1 - ptr2);
+		if (ptr1 == '\0')
 			break;
 	}
 

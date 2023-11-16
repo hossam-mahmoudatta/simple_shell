@@ -1,4 +1,6 @@
 #include "main.h"
+
+
 /**
  * check_alias - is a function that check if an alias exist
  * @neww: is a list of arguments
