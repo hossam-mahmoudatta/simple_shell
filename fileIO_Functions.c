@@ -35,7 +35,7 @@ char *get_charHistoryFile(info_t *info)
  */
 int write_intHistory(info_t *info)
 {
-	size_t fileDelimiter;
+	ssize_t fileDelimiter;
 	char *fileName = get_charHistoryFile(info);
 	list_t *node = NULL;
 
@@ -65,7 +65,7 @@ int write_intHistory(info_t *info)
 int read_intHistory(info_t *info)
 {
 	int i, last = 0, lineCount = 0;
-	size_t fileDelimiter, rdLength, fSize = 0;
+	ssize_t fileDelimiter, rdLength, fSize = 0;
 	struct stat standard;
 	char *buffer = NULL, *file_Name = get_charHistoryFile(info);
 
@@ -99,7 +99,7 @@ int read_intHistory(info_t *info)
 		build_intHistoryList(info, buffer + last, lineCount++);
 	free(buffer);
 	info->historyCounter = lineCount;
-	while (info->historyCounter-- >= HIST_MAX)
+	while (info->historyCounter-- >= HISTORY_MAX)
 		delete_node_at_index(&(info->history), 0);
 	reNumber_intHistory(info);
 	return (info->historyCounter);
