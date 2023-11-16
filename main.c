@@ -39,6 +39,5 @@ int main(int ac, char **av)
 	}
 	populate_env_list(info);
 	read_intHistory(info);
-	loopHash(info, av);
 	return (EXIT_SUCCESS);
 }
