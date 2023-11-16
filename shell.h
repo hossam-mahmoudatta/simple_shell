@@ -3,13 +3,14 @@
 
 
 #include <stdio.h>
+#include <unistd.h>
 #include <windows.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stddef.h>
 #include <errno.h>
 #include <sys/types.h>
-
+#include <sys/wait.h>
 #include <sys/stat.h>
 #include <signal.h>
 #include <fcntl.h>
