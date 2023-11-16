@@ -221,9 +221,9 @@ int _myAlias(info_t *);
 
 
 /* getline.c module */
-ssize_t input_buffer(info_t *, char **, size_t *);
-ssize_t get_input(info_t *);
-ssize_t read_buffer(info_t *, char *, size_t *);
+size_t input_buffer(info_t *, char **, size_t *);
+size_t get_input(info_t *);
+size_t read_buffer(info_t *, char *, size_t *);
 int _getline(info_t *, char **, size_t *);
 void sigintHandler(int);
 
@@ -284,7 +284,7 @@ size_t list_len(const list_t *);
 char **list_to_strings(list_t *);
 size_t print_list(const list_t *);
 list_t *node_starts_with(list_t *, char *, char);
-ssize_t get_node_index(list_t *, list_t *);
+size_t get_node_index(list_t *, list_t *);
 
 
 

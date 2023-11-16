@@ -127,7 +127,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="builtin_emulators.c" />
+    <ClCompile Include="builtin_emulators2.c" />
+    <ClCompile Include="chain.c" />
+    <ClCompile Include="env.c" />
+    <ClCompile Include="env2.c" />
+    <ClCompile Include="error_string_functions.c" />
+    <ClCompile Include="file_io_functions.c" />
+    <ClCompile Include="getline.c" />
+    <ClCompile Include="hash_Functions.c" />
+    <ClCompile Include="info.c" />
+    <ClCompile Include="liststr.c" />
+    <ClCompile Include="liststr2.c" />
+    <ClCompile Include="path.c" />
     <ClCompile Include="SimpleShell_Tester.cpp" />
+    <ClCompile Include="string_functions.c" />
+    <ClCompile Include="string_functions2.c" />
+    <ClCompile Include="string_functions3.c" />
+    <ClCompile Include="string_functions4.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="shell.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="AUTHORS" />
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
