@@ -217,30 +217,30 @@ size_t get_node_index(list_t *, list_t *);
 
 /* memory_functions */
 char *_memset(char *, char, unsigned int);
-void ffree(char **);
+void free_Strings(char **);
 void *_realloc(void *, unsigned int, unsigned int);
 
 
 
 /* memory_functions2.c */
-int bfree(void **);
+int bfree_Pointer(void **);
 
 
 
 /* more_functions.c */
 int interactive(info_t *);
-int is_delim(char, char *);
-int _isalpha(int);
+int is_delimiter(char, char *);
+int _isAlpha(int);
 int _atoi(char *);
 
 
 
 /* more_functions2.c */
 int _strtoi(char *);
-void print_error(info_t *, char *);
-int print_d(int, int);
-char *convert_number(long int, int, int);
-void remove_comments(char *);
+void print_voidError(info_t *, char *);
+int print_intDecimal(int, int);
+char *convert_charNumber(long int, int, int);
+void remove_voidComments(char *);
 
 
 
