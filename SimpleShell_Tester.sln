@@ -5,6 +5,30 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleShell_Tester", "SimpleShell_Tester.vcxproj", "{A9FD960D-3D4A-4F65-8375-B3C85C0D9AA5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4EF99ED6-ED48-404D-9BCF-CC63CE7832DA}"
+	ProjectSection(SolutionItems) = preProject
+		builtin_emulators2_Functions.c = builtin_emulators2_Functions.c
+		builtin_emulators_Functions.c = builtin_emulators_Functions.c
+		chain_Functions.c = chain_Functions.c
+		env2_Functions.c = env2_Functions.c
+		env_Functions.c = env_Functions.c
+		error_string_Functions.c = error_string_Functions.c
+		fileIO_Functions.c = fileIO_Functions.c
+		getline_Functions.c = getline_Functions.c
+		hash_Functions.c = hash_Functions.c
+		info_Functions.c = info_Functions.c
+		liststr2_Functions.c = liststr2_Functions.c
+		liststr_Functions.c = liststr_Functions.c
+		memory2__Functions.c = memory2__Functions.c
+		memory_Functions.c = memory_Functions.c
+		more2_Functions.c = more2_Functions.c
+		more_Functions.c = more_Functions.c
+		string1_Functions.c = string1_Functions.c
+		string2_Functions.c = string2_Functions.c
+		string3_Functions.c = string3_Functions.c
+		string4_Functions.c = string4_Functions.c
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
