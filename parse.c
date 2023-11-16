@@ -3,10 +3,10 @@
 /**
  * str_tok - Entry point
  * @command: command line
- * @delim: delimieter
+ * @delimiter: delimiter
  * Return: current token
  */
-char *str_tok(char *command, const char *delim)
+char *str_tok(char *command, const char *delimiter)
 {
 	static char *last_token;
 	char *current_token;
@@ -18,7 +18,7 @@ char *str_tok(char *command, const char *delim)
 		return (NULL);
 
 	current_token = last_token;
-	while (*current_token != '\0' && _strchr(delim, *current_token) != NULL)
+	while (*current_token != '\0' && _strchr(delimiter, *current_token) != NULL)
 		current_token++;
 
 	if (*current_token == '\0')
@@ -28,7 +28,7 @@ char *str_tok(char *command, const char *delim)
 	}
 
 	last_token = current_token;
-	while (*last_token != '\0' && _strchr(delim, *last_token) == NULL)
+	while (*last_token != '\0' && _strchr(delimiter, *last_token) == NULL)
 		last_token++;
 
 	if (*last_token != '\0')
