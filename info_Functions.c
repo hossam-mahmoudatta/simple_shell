@@ -65,8 +65,8 @@ void free_voidInfo(info_t *info, int all)
 			free_list(&(info->history));
 		if (info->alias)
 			free_list(&(info->alias));
-		ffree(info->Environment);
-			info->Environment = NULL;
+		ffree(info->environ);
+			info->environ = NULL;
 		bfree((void **)info->cmdBuffer);
 		if (info->readFD > 2)
 			close(info->readFD);
