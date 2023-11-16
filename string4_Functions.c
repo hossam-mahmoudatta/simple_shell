@@ -19,7 +19,7 @@ char **strtow(char *string, char *delimiter)
 	if (!delimiter)
 		delimiter = " ";
 	for (i = 0; string[i] != '\0'; i++)
-		if (!is_delim(string[i], delimiter) && (is_delim(string[i + 1], delimiter) || !string[i + 1]))
+		if (!is_delimiter(string[i], delimiter) && (is_delimiter(string[i + 1], delimiter) || !string[i + 1]))
 			numWords++;
 
 	if (numWords == 0)
@@ -29,10 +29,10 @@ char **strtow(char *string, char *delimiter)
 		return (NULL);
 	for (i = 0, j = 0; j < numWords; j++)
 	{
-		while (is_delim(string[i], delimiter))
+		while (is_delimiter(string[i], delimiter))
 			i++;
 		k = 0;
-		while (!is_delim(string[i + k], delimiter) && string[i + k])
+		while (!is_delimiter(string[i + k], delimiter) && string[i + k])
 			k++;
 		s[j] = malloc((k + 1) * sizeof(char));
 		if (!s[j])
@@ -64,8 +64,8 @@ char **strtow2(char *string, char delimiter)
 	if (string == NULL || string[0] == 0)
 		return (NULL);
 	for (i = 0; string[i] != '\0'; i++)
-		if ((string[i] != d && string[i + 1] == d) ||
-		    (string[i] != d && !string[i + 1]) || string[i + 1] == d)
+		if ((string[i] != delimiter && string[i + 1] == delimiter) ||
+		    (string[i] != delimiter && !string[i + 1]) || string[i + 1] == delimiter)
 			numWords++;
 	if (numWords == 0)
 		return (NULL);
@@ -74,10 +74,10 @@ char **strtow2(char *string, char delimiter)
 		return (NULL);
 	for (i = 0, j = 0; j < numWords; j++)
 	{
-		while (string[i] == d && string[i] != d)
+		while (string[i] == delimiter && string[i] != delimiter)
 			i++;
 		k = 0;
-		while (string[i + k] != d && string[i + k] && string[i + k] != d)
+		while (string[i + k] != delimiter && string[i + k] && string[i + k] != delimiter)
 			k++;
 		s[j] = malloc((k + 1) * sizeof(char));
 		if (!s[j])
