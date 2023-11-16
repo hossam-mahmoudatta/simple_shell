@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "shell.h": "c",
-        "istream": "c"
+        "istream": "c",
+        "stdlib.h": "c"
     }
 }
