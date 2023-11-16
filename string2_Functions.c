@@ -2,8 +2,8 @@
 
 /**
  * _strcpy - copies a string
- * @dest: the destination
- * @src: the source
+ * @destination: the destination
+ * @source: the source
  *
  * Return: pointer to destination
  */
@@ -26,7 +26,7 @@ char *_strcpy(char *destination, char *source)
 
 /**
  * _strdup - duplicates a string
- * @str: the string to duplicate
+ * @string: the string to duplicate
  *
  * Return: pointer to the duplicated string
  */
@@ -51,7 +51,7 @@ char *_strdup(const char *string)
 
 /**
  *_puts - prints an input string
- *@str: the string to be printed
+ *@string: the string to be printed
  *
  * Return: Nothing
  */

@@ -52,8 +52,8 @@ char **strtow(char *string, char *delimiter)
 
 /**
  * **strtow2 - splits a string into words
- * @str: the input string
- * @d: the delimeter
+ * @string: the input string
+ * @delimiter: the delimeter
  * Return: a pointer to an array of strings, or NULL on failure
  */
 char **strtow2(char *string, char delimiter)
