@@ -33,8 +33,7 @@ int _shellExit(info_t *info)
 
 /**
  * _shellCD - changes the current directory of the process
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
+ * @info: Structure containing potential arguments.
  *  Return: Always 0
  */
 int _shellCD(info_t *info)
@@ -86,7 +85,6 @@ int _shellCD(info_t *info)
 /**
  * _myHelp - changes the current directory of the process
  * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
  *  Return: Always 0
  */
 int _myHelp(info_t *info)
