@@ -36,6 +36,7 @@ typedef struct linked_path
 	struct linked_path *next;
 } linked_path;
 
+
 /**
  * struct alias - This is a linked list containing
  * ---------------------Each diretory in the path
@@ -52,10 +53,12 @@ typedef struct alias
 } alias;
 extern alias *alias_list;
 
+
 /* memory freeing functions */
 void _freeenv(void);
 void  _freeargs(char **args);
 void _freepath(linked_path *path);
+
 
 /** alias handler functions */
 int my_alias(char **args);
@@ -66,6 +69,7 @@ char *check_alias(char *neww);
 int execute_alias(char *main, char **args);
 alias *get_alias_list(void);
 
+
 /** environ functions */
 int my_setenv(const char *name, const char *value, int overwrite);
 int my_env(void);
@@ -74,6 +78,7 @@ char *_getenv(const char *name);
 char *get_dir();
 int my_unsetenv(char **args);
 linked_path *link_path(void);
+
 
 /** execute functions */
 int execute(char *command, int line_num);
@@ -84,6 +89,7 @@ int my_echo(char **args);
 int run_child(char **args);
 int run_parent(void);
 int exit_stat(void);
+
 
 /** string / parsing functions */
 char *str_tok(char *command, const char *delim);

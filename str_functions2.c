@@ -3,58 +3,58 @@
 
 /**
  * _strcat - Entry point
- * @dest: pointer variable 1
- * @src: pointer variable 2
+ * @destination: pointer variable 1
+ * @source: pointer variable 2
  * Return: two strings concatenated)
  */
-char *_strcat(char *dest, const char *src)
+char *_strcat(char *destination, const char *source)
 {
-	char *p = dest;
+	char *p = destination;
 
 	while (*p)
 	{
 		p++;
 	}
-	if (src)
+	if (source)
 	{
-		while (*src)
+		while (*source)
 		{
-			*p++ = *src++;
+			*p++ = *source++;
 		}
 	}
 	*p = '\0';
 
-	return (dest);
+	return (destination);
 }
 
 
 /**
  * _strcpy - Entry point
- * @dest: pointer variable 1
- * @src: pointer variable 2
+ * @destination: pointer variable 1
+ * @source: pointer variable 2
  * Return: pointer to dest
  */
-char *_strcpy(char *dest, const char *src)
+char *_strcpy(char *destination, const char *source)
 {
 	char *p;
 
-	while (*src == ' ')
+	while (*source == ' ')
 	{
-		src++;
+		source++;
 	}
 
-	p = dest;
-	while (*src)
+	p = destination;
+	while (*source)
 	{
-		*p++ = *src++;
+		*p++ = *source++;
 	}
 
-	while (p > dest && *(p - 1) == ' ')
+	while (p > destination && *(p - 1) == ' ')
 	{
 		p--;
 	}
 
 	*p = '\0';
 
-	return (dest);
+	return (destination);
 }
