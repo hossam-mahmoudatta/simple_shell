@@ -221,7 +221,9 @@ int _myAlias(info_t *);
 
 
 /* getline.c module */
+ssize_t input_buffer(info_t *, char **, size_t *);
 ssize_t get_input(info_t *);
+ssize_t read_buffer(info_t *, char *, size_t *);
 int _getline(info_t *, char **, size_t *);
 void sigintHandler(int);
 
