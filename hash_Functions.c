@@ -99,8 +99,8 @@ void findCMD(info_t *info)
 		info->lineCount++;
 		info->lineCount_Flag = 0;
 	}
-	for (i = 0, k = 0; info->arg[i]; i++)
-		if (!is_delimiter(info->arg[i], " \t\n"))
+	for (i = 0, k = 0; info->argument[i]; i++)
+		if (!is_delimiter(info->argument[i], " \t\n"))
 			k++;
 	if (!k)
 		return;
@@ -116,7 +116,7 @@ void findCMD(info_t *info)
 		if ((interactive(info) || _getenv(info, "PATH=")
 			|| info->argv[0][0] == '/') && isCMD(info, info->argv[0]))
 			forkCMD(info);
-		else if (*(info->arg) != '\n')
+		else if (*(info->argument) != '\n')
 		{
 			info->status = 127;
 			print_voidError(info, "not found\n");
