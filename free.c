@@ -7,12 +7,12 @@
 void  _freeargs(char **args)
 {
 	int index;
-	int len = 0;
+	int length = 0;
 
-	while (args[len] != NULL)
-		len++;
+	while (args[length] != NULL)
+		length++;
 
-	for (index = 0; index < len; index++)
+	for (index = 0; index < length; index++)
 	{
 		free(args[index]);
 	}
