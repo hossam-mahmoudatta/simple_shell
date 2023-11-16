@@ -280,11 +280,11 @@ char **strtow(char *, char *);
 char **strtow2(char *, char);
 
 
-
-// char *strtok_s(char *line, char *delim);
-// int envi(data_of_program *data);
-// int envi(data_of_program *data);
-// int built_unset_env(data_of_program *data);
-
+/**
+ * char *strtok_s(char *line, char *delim);
+ * int envi(data_of_program *data);
+ * int envi(data_of_program *data);
+ * int built_unset_env(data_of_program *data);
+*/
 
 #endif
