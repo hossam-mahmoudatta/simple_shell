@@ -10,7 +10,7 @@
 char *_strncpy(char *destination, char *source, int n)
 {
 	int i, j;
-	char *source = destination;
+	char *s = destination;
 
 	i = 0;
 	while (source[i] != '\0' && i < n - 1)
@@ -27,7 +27,7 @@ char *_strncpy(char *destination, char *source, int n)
 			j++;
 		}
 	}
-	return (source);
+	return (s);
 }
 
 

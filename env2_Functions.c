@@ -8,9 +8,9 @@
  */
 char **get_environ(info_t *info)
 {
-	if (!info->Environment || info->envChanged)
+	if (!info->environ || info->envChanged)
 	{
-		info->Environment = list_to_strings(info->env);
+		info->environ = list_to_strings(info->env);
 		info->envChanged = 0;
 	}
 
@@ -37,7 +37,7 @@ int _unsetenv(info_t *info, char *variable)
 
 	while (node)
 	{
-		string = starts_with(node->str, variable);
+		string = starts_with(node->string, variable);
 		if (string && *string == '=')
 		{
 			info->envChanged = delete_node_at_index(&(info->env), i);
