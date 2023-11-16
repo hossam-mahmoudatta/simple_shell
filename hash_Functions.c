@@ -16,24 +16,24 @@ int mainShell(info_t *info, char **argVector)
 
 	while (variable1 != -1 && builtin_ret != -2)
 	{
-		clear_info(info);
+		clear_voidInfo(info);
 		if (interactive(info))
 			_puts("$ ");
-		_eputchar(BUFFER_FLUSH);
+		_inputPutChar(BUFFER_FLUSH);
 		variable1 = get_input(info);
 		if (variable1 != -1)
 		{
 			set_info(info, argVector);
 			builtin_ret = findBuiltIn(info);
 			if (builtin_ret == -1)
-				find_cmd(info);
+				findCMD(info);
 		}
 		else if (interactive(info))
 			_putchar('\n');
-		free_info(info, 0);
+		free_voidInfo(info, 0);
 	}
-	write_history(info);
-	free_info(info, 1);
+	write_intHistory(info);
+	free_voidInfo(info, 1);
 	if (!interactive(info) && info->status)
 		exit(info->status);
 	if (builtin_ret == -2)
@@ -100,7 +100,7 @@ void findCMD(info_t *info)
 		info->lineCount_Flag = 0;
 	}
 	for (i = 0, k = 0; info->arg[i]; i++)
-		if (!is_delim(info->arg[i], " \t\n"))
+		if (!is_delimiter(info->arg[i], " \t\n"))
 			k++;
 	if (!k)
 		return;
@@ -119,7 +119,7 @@ void findCMD(info_t *info)
 		else if (*(info->arg) != '\n')
 		{
 			info->status = 127;
-			print_error(info, "not found\n");
+			print_voidError(info, "not found\n");
 		}
 	}
 }
@@ -145,7 +145,7 @@ void forkCMD(info_t *info)
 	{
 		if (execve(info->path, info->argv, get_environ(info)) == -1)
 		{
-			free_info(info, 1);
+			free_voidInfo(info, 1);
 			if (errno == EACCES)
 				exit(126);
 			exit(1);
@@ -159,7 +159,7 @@ void forkCMD(info_t *info)
 		{
 			info->status = WEXITSTATUS(info->status);
 			if (info->status == 126)
-				print_error(info, "Permission denied\n");
+				print_voidError(info, "Permission denied\n");
 		}
 	}
 }
