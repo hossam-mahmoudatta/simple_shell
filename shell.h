@@ -183,11 +183,6 @@ void forkCMD(info_t *);
 
 
 
-/* loop_Hash.c */
-int loopHash(char **);
-
-
-
 /* info.c module */
 void clear_voidInfo(info_t *);
 void set_voidInfo(info_t *, char **);
