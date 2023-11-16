@@ -8,7 +8,7 @@
  *
  * Return: 1 if chain delimeter, 0 otherwise
  */
-int is_chain(info_t *info, char *buffer, size_t *p)
+int isChain(info_t *info, char *buffer, size_t *p)
 {
 	size_t j = *p;
 

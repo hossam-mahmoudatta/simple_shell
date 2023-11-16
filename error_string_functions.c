@@ -51,7 +51,7 @@ int _inputPutChar(char c)
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int _putFileDescriptor(char c, int fileDescriptor)
+int _putFD(char c, int fileDescriptor)
 {
 	static int i;
 	static char buffer[WRITE_BUFFER_SIZE];
