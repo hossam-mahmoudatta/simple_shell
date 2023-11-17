@@ -12,6 +12,3 @@ void sigintHandler(int sig_num)
 	write(STDOUT_FILENO, "\n", 1);
 	signal(SIGINT, sigintHandler);
 }
-
-.....................
-.......................
